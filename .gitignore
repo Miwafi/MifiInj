@@ -53,3 +53,39 @@ dkms.conf
 
 # debug information files
 *.dwo
+
+# ------------------------------------------------------------------
+# Project specific
+# ------------------------------------------------------------------
+
+# Build output (intermediates + MifiInj.dll / .pdb)
+build/
+
+# cs2-dumper dumps (regenerable: run cs2-dumper.exe)
+output/
+cs2-dumper.log
+*.log
+
+# Python scratch scripts / caches
+__pycache__/
+*.pyc
+
+# IDE-local directories
+.vs/
+.vscode/
+.trae/
+.idea/
+
+# Visual Studio user state
+*.user
+*.suo
+*.sln.docstates
+*.VC.db
+*.VC.opendb
+ipch/
+*.tlog
+*.lastbuildstate
+*.unsuccessfulbuild
+
+# NOTE: imgui-1.92.9b/ is a vendored dependency referenced by
+# MifiInj.vcxproj and must stay tracked for out-of-the-box builds.

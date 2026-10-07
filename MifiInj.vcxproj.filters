@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="src">
+      <UniqueIdentifier>{d1a1f0a1-0001-4a5b-8c7d-000000000001}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="imgui">
+      <UniqueIdentifier>{d1a1f0a1-0002-4a5b-8c7d-000000000002}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="imgui\backends">
+      <UniqueIdentifier>{d1a1f0a1-0003-4a5b-8c7d-000000000003}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="src\dllmain.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\hooks.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\menu.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\esp.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\overrides.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\bhop.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\antiaim.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\vis.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="imgui-1.92.9b\imgui.cpp">
+      <Filter>imgui</Filter>
+    </ClCompile>
+    <ClCompile Include="imgui-1.92.9b\imgui_demo.cpp">
+      <Filter>imgui</Filter>
+    </ClCompile>
+    <ClCompile Include="imgui-1.92.9b\imgui_draw.cpp">
+      <Filter>imgui</Filter>
+    </ClCompile>
+    <ClCompile Include="imgui-1.92.9b\imgui_tables.cpp">
+      <Filter>imgui</Filter>
+    </ClCompile>
+    <ClCompile Include="imgui-1.92.9b\imgui_widgets.cpp">
+      <Filter>imgui</Filter>
+    </ClCompile>
+    <ClCompile Include="imgui-1.92.9b\backends\imgui_impl_dx11.cpp">
+      <Filter>imgui\backends</Filter>
+    </ClCompile>
+    <ClCompile Include="imgui-1.92.9b\backends\imgui_impl_win32.cpp">
+      <Filter>imgui\backends</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="src\hooks.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\menu.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\esp.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\overrides.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\bhop.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\antiaim.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\vis.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\triggerbot.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="imgui-1.92.9b\imgui.h">
+      <Filter>imgui</Filter>
+    </ClInclude>
+    <ClInclude Include="imgui-1.92.9b\imconfig.h">
+      <Filter>imgui</Filter>
+    </ClInclude>
+    <ClInclude Include="imgui-1.92.9b\imgui_internal.h">
+      <Filter>imgui</Filter>
+    </ClInclude>
+    <ClInclude Include="imgui-1.92.9b\backends\imgui_impl_dx11.h">
+      <Filter>imgui\backends</Filter>
+    </ClInclude>
+    <ClInclude Include="imgui-1.92.9b\backends\imgui_impl_win32.h">
+      <Filter>imgui\backends</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>
