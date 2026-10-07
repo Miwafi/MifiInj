@@ -1,4 +1,5 @@
 #include "overrides.h"
+#include "pro/license.h"
 #include "thirdperson.h"
 #include "esp.h"
 
@@ -446,8 +447,9 @@ void Poll()
         ApplyAntiFlash(pawn);
 
     // First-person FOV only: skip while third person is active (its
-    // camera block owns framing).
-    if (g_settings.fovEnabled && !thirdperson::Active())
+    // camera block owns framing). FOV tweak is a Pro feature.
+    if (g_settings.fovEnabled && pro::FeatureEnabled(pro::kFeatFov) &&
+        !thirdperson::Active())
         ApplyFov(pawn, controller);
 
     // Sky tint. Works regardless of local pawn state (entities exist once

@@ -7,6 +7,9 @@
     <Filter Include="imgui">
       <UniqueIdentifier>{d1a1f0a1-0002-4a5b-8c7d-000000000002}</UniqueIdentifier>
     </Filter>
+    <Filter Include="src\pro">
+      <UniqueIdentifier>{d1a1f0a1-0004-4a5b-8c7d-000000000004}</UniqueIdentifier>
+    </Filter>
     <Filter Include="imgui\backends">
       <UniqueIdentifier>{d1a1f0a1-0003-4a5b-8c7d-000000000003}</UniqueIdentifier>
     </Filter>
@@ -14,6 +17,18 @@
   <ItemGroup>
     <ClCompile Include="src\dllmain.cpp">
       <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\pro\verify.cpp">
+      <Filter>src\pro</Filter>
+    </ClCompile>
+    <ClCompile Include="src\pro\hwid.cpp">
+      <Filter>src\pro</Filter>
+    </ClCompile>
+    <ClCompile Include="src\pro\monocypher.c">
+      <Filter>src\pro</Filter>
+    </ClCompile>
+    <ClCompile Include="src\pro\monocypher-ed25519.c">
+      <Filter>src\pro</Filter>
     </ClCompile>
     <ClCompile Include="src\hooks.cpp">
       <Filter>src</Filter>
@@ -82,6 +97,18 @@
     </ClInclude>
     <ClInclude Include="src\triggerbot.h">
       <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\pro\license.h">
+      <Filter>src\pro</Filter>
+    </ClInclude>
+    <ClInclude Include="src\pro\hwid.h">
+      <Filter>src\pro</Filter>
+    </ClInclude>
+    <ClInclude Include="src\pro\monocypher.h">
+      <Filter>src\pro</Filter>
+    </ClInclude>
+    <ClInclude Include="src\pro\monocypher-ed25519.h">
+      <Filter>src\pro</Filter>
     </ClInclude>
     <ClInclude Include="imgui-1.92.9b\imgui.h">
       <Filter>imgui</Filter>

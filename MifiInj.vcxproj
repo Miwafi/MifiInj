@@ -87,6 +87,10 @@
     <ClCompile Include="src\bhop.cpp" />
     <ClCompile Include="src\antiaim.cpp" />
     <ClCompile Include="src\vis.cpp" />
+    <ClCompile Include="src\pro\verify.cpp" />
+    <ClCompile Include="src\pro\hwid.cpp" />
+    <ClCompile Include="src\pro\monocypher.c" />
+    <ClCompile Include="src\pro\monocypher-ed25519.c" />
     <ClCompile Include="imgui-1.92.9b\imgui.cpp" />
     <ClCompile Include="imgui-1.92.9b\imgui_demo.cpp" />
     <ClCompile Include="imgui-1.92.9b\imgui_draw.cpp" />
@@ -106,6 +110,10 @@
     <ClInclude Include="src\antiaim.h" />
     <ClInclude Include="src\vis.h" />
     <ClInclude Include="src\triggerbot.h" />
+    <ClInclude Include="src\pro\license.h" />
+    <ClInclude Include="src\pro\hwid.h" />
+    <ClInclude Include="src\pro\monocypher.h" />
+    <ClInclude Include="src\pro\monocypher-ed25519.h" />
     <ClInclude Include="imgui-1.92.9b\imgui.h" />
     <ClInclude Include="imgui-1.92.9b\imconfig.h" />
     <ClInclude Include="imgui-1.92.9b\imgui_internal.h" />

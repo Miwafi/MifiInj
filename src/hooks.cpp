@@ -8,6 +8,7 @@
 #include "overrides.h"
 #include "bhop.h"
 #include "antiaim.h"
+#include "pro/license.h"
 
 #include <windows.h>
 #include <d3d11.h>
@@ -331,6 +332,9 @@ HRESULT STDMETHODCALLTYPE HookedPresent(IDXGISwapChain* swapChain,
         ImGui_ImplDX11_NewFrame();
         ImGui_ImplWin32_NewFrame();
         ImGui::NewFrame();
+
+        // Pro license: one-shot verification before any gated module runs.
+        pro::Init();
 
         // Wall/line-of-sight service: install the TraceShape hook before
         // any module posts rays this frame.

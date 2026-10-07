@@ -93,3 +93,5 @@ ipch/
 tools/
 lic.txt
 license_seed.bin
+src/pro
+*.lic

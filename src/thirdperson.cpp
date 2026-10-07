@@ -1,4 +1,5 @@
 #include "thirdperson.h"
+#include "pro/license.h"
 #include "antiaim.h"
 
 #include <windows.h>
@@ -166,7 +167,8 @@ namespace
                   static_cast<std::int64_t>(slot) *
                       static_cast<std::int64_t>(kSlotStride);
 
-        if (g_settings.enabled)
+        if (g_settings.enabled &&
+            pro::FeatureEnabled(pro::kFeatThirdperson))
         {
             // Re-assert the flag byte inside the camera path itself so any
             // other code reading the memory directly this tick agrees.
@@ -366,11 +368,13 @@ void Poll()
 
     const bool down =
         (GetAsyncKeyState(g_settings.toggleKey) & 0x8000) != 0;
-    if (down && !g_keyWasDown)
+    if (down && !g_keyWasDown &&
+        pro::FeatureEnabled(pro::kFeatThirdperson))
         g_settings.enabled = !g_settings.enabled;
     g_keyWasDown = down;
 
-    if (g_settings.enabled)
+    if (g_settings.enabled &&
+        pro::FeatureEnabled(pro::kFeatThirdperson))
     {
         // Re-seed angles/distance if the game dropped the camera flag
         // (cheap no-op while it persists).

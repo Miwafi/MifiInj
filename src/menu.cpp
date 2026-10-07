@@ -12,7 +12,11 @@
 #include "overrides.h"
 #include "bhop.h"
 #include "antiaim.h"
+#include "pro/license.h"
 #include "imgui.h"
+
+#include <ctime>
+#include <cstdio>
 
 namespace menu
 {
@@ -166,6 +170,51 @@ namespace
 
     void TabSettings()
     {
+        ImGui::SeparatorText("License");
+        {
+            pro::Init();
+            const pro::State ls = pro::GetState();
+            if (ls.ok)
+            {
+                const std::time_t exp =
+                    static_cast<std::time_t>(ls.expiresAt);
+                std::tm tmv{};
+                localtime_s(&tmv, &exp);
+                char date[32] = {};
+                std::strftime(date, sizeof(date), "%Y-%m-%d", &tmv);
+
+                static const char* kNames[] = {
+                    "aimbot_pro", "cloud_cfg", "premium_esp",
+                    "fov", "thirdperson", "antiaim"
+                };
+                char feats[128] = {};
+                std::size_t used = 0;
+                for (int i = 0; i < 6; ++i)
+                {
+                    if ((ls.featureMask & (1u << i)) != 0)
+                        used += static_cast<std::size_t>(std::snprintf(
+                            feats + used, sizeof(feats) - used, "%s%s",
+                            used ? ", " : "", kNames[i]));
+                }
+
+                ImGui::TextColored(ImVec4(0.55f, 1.0f, 0.6f, 1.0f),
+                                   "Pro active  (key %llu)",
+                                   (unsigned long long)ls.keyId);
+                ImGui::Text("expires %s", date);
+                ImGui::TextDisabled("features: %s",
+                                    used ? feats : "none");
+            }
+            else
+            {
+                ImGui::TextColored(ImVec4(1.0f, 0.8f, 0.4f, 1.0f),
+                                   "Community edition");
+                ImGui::TextDisabled("%s", ls.failReason);
+                ImGui::TextDisabled("Third-person view, FOV tweak and "
+                                    "anti-aim are Pro features.");
+            }
+        }
+
+        ImGui::Spacing();
         ImGui::SeparatorText("Movement");
         {
             bhop::Settings& bh = bhop::g_settings;
@@ -198,7 +247,7 @@ namespace
         {
             antiaim::Settings& aa = antiaim::g_settings;
 
-            ImGui::Checkbox("Face camera + look down (third person)",
+            ImGui::Checkbox("Face camera + look down (third person) [Pro]",
                             &aa.enabled);
             ImGui::Checkbox("Send real angles while firing",
                             &aa.realWhileAttack);
@@ -241,7 +290,7 @@ namespace
             }
             else
             {
-                ImGui::Checkbox("Third-person view", &tp.enabled);
+                ImGui::Checkbox("Third-person view [Pro]", &tp.enabled);
 
                 const char* keyNames[] = {
                     "F5", "F6", "F7", "F8", "V", "B"
@@ -280,7 +329,7 @@ namespace
 
             ImGui::Checkbox("Anti-flash", &ov.antiFlash);
 
-            ImGui::Checkbox("First-person FOV", &ov.fovEnabled);
+            ImGui::Checkbox("First-person FOV [Pro]", &ov.fovEnabled);
             ImGui::SetNextItemWidth(200.0f);
             ImGui::SliderInt("##fovValue", &ov.fov, 80, 130,
                              "FOV %d");

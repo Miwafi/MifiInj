@@ -1,5 +1,6 @@
 #include "antiaim.h"
 #include "thirdperson.h"
+#include "pro/license.h"
 #include "aimbot.h"
 
 #include <windows.h>
@@ -265,6 +266,15 @@ namespace
     //   1. anti-aim fake (when enabled in third person),
     //   2. silent aim snap (+ optional RCS),
     //   3. RCS over the live angles.
+    // Pro-gated AA activation: the feature bit must be covered by a valid
+    // license (community build locks the feature off entirely).
+    bool AAActive()
+    {
+        return g_settings.enabled && thirdperson::Ready() &&
+               thirdperson::Active() &&
+               pro::FeatureEnabled(pro::kFeatAntiaim);
+    }
+
     void __fastcall HookedEntryBuild(void* slotBase, int slot)
     {
         g_original(slotBase, slot);
@@ -284,8 +294,7 @@ namespace
                 return;
 
             // ---- Mode 1: anti-aim (takes priority over everything) ----
-            if (g_settings.enabled && thirdperson::Ready() &&
-                thirdperson::Active())
+            if (AAActive())
             {
                 // AA owns the command angles here; do not let a frozen RCS
                 // baseline unload in one big correction when it ends.
@@ -392,8 +401,7 @@ namespace
 
         __try
         {
-            if (g_settings.enabled && thirdperson::Ready() &&
-                thirdperson::Active() && g_inputBase != nullptr &&
+            if (AAActive() && g_inputBase != nullptr &&
                 ang != nullptr && pawn != nullptr)
             {
                 void* localPawn = nullptr;
@@ -557,8 +565,7 @@ void Poll()
 
 bool Faking()
 {
-    return g_settings.enabled && g_original != nullptr &&
-           thirdperson::Ready() && thirdperson::Active();
+    return AAActive() && g_original != nullptr;
 }
 
 Diag GetDiag()
